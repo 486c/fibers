@@ -34,6 +34,7 @@ async fn main() -> Result<()> {
     .nest("/signalr", routes::signalr::router())
     .nest("/oauth", routes::oauth::router())
     .merge(routes::users::router(state.clone()))
+    .merge(routes::beatmaps::router(state.clone()))
     // do i even need registering?
     // .route("/users", post(register))
     .route("/api/v2/notifications", get(notifications))
